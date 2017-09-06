@@ -3,8 +3,6 @@ import AppBar from 'material-ui/AppBar';
 import {Card, CardActions, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
-import BEAPI from '../utils/beAPI'
-
 
 class Main extends Component{
     constructor(){
@@ -25,13 +23,6 @@ class Main extends Component{
         window.location.href="/Search"
     }
 
-    handletest = () =>{
-        BEAPI.search()
-            .then((results)=>{
-                console.log("DATA",results.data)
-            })
-
-    }
     render(){
         return(
             <div>
@@ -49,7 +40,6 @@ class Main extends Component{
                         <FlatButton label="Saved" onClick={()=>this.handleSaved()}/>
                         <FlatButton label="Search" onClick={()=>this.handleSearch()}/>
 
-                        <FlatButton label="Test" onClick={()=>this.handletest()}/>
                     </CardActions>
                 </Card>
             </div>

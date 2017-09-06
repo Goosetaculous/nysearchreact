@@ -3,6 +3,7 @@ const BASEURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-ke
 const SEARCH = "&q=";
 const KEY = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
 
+
 export default {
     search: function(query,startYear,EndYear) {
         if(startYear){
@@ -13,6 +14,13 @@ export default {
         }
         console.log(BASEURL + KEY + SEARCH+query)
         return axios.get(BASEURL + KEY + SEARCH+query + '?sort=newest');
+    },
+
+    save: function(obj) {
+        console.log("OBJ", obj)
+        return axios.post("/api/save", obj)
     }
-};
+
+
+}
 

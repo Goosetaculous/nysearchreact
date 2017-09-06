@@ -12,7 +12,8 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
 //API CALL TO NY API
-import API from '../utils/nytAPI'
+import API from '../utils/'
+
 
 
 class Search extends Component{
@@ -26,7 +27,6 @@ class Search extends Component{
             searchResults:""
         }
     }
-
     handleInputChange=event=>{
         const value = event.target.value;
         const name = event.target.name
@@ -36,13 +36,14 @@ class Search extends Component{
 
     }
     handleSave=(data)=>{
-        // console.log(data.snippet)
-        // console.log(data.web_url)
-        // console.log(data.pub_date)s
+        API.save({
+            title: data.snippet,
+            url: data.web_url,
+            date: data.pub_date
+        })
         this.removeSavedResultfromState(data._id)
 
     }
-
     removeSavedResultfromState=(id)=>{
         for(let i = 0; i<this.state.searchResults.length; i++){
             if(this.state.searchResults[i]._id === id){
@@ -58,7 +59,6 @@ class Search extends Component{
 
 
     }
-
     populateResults=(data)=>{
         return(
 
@@ -78,9 +78,6 @@ class Search extends Component{
 
         )
     }
-
-
-
     searchForm=event=>{
         event.preventDefault()
         API.search(this.state.Topic,this.state.startYear,this.state.endYear)
@@ -90,7 +87,6 @@ class Search extends Component{
             })
             })
     }
-
     render(){
         return(
             <div style={{textAlign: "center"}}>
