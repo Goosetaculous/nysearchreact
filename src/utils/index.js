@@ -19,6 +19,10 @@ export default {
     save: function(obj) {
         console.log("OBJ", obj)
         return axios.post("/api/save", obj)
+    },
+
+    getsaved: function(){
+        return axios.get("/api/save")
     }
 
 

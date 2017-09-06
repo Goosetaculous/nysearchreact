@@ -8,5 +8,13 @@ module.exports=(app)=>{
         }).catch((e)=>{
             res.status(500).json({error:e})
         })
+    }),
+
+    app.get("/api/save",(req,res)=>{
+        db.Articles.find({}).then((result)=>{
+            res.status(200).json(result)
+        }).catch((e)=>{
+            res.status(500).json({error:e})
+        })
     })
 }

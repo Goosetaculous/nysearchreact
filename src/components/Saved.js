@@ -8,46 +8,62 @@ import {
 
 import FlatButton from 'material-ui/FlatButton';
 
+import API from '../utils/'
+
 class Saved extends Component{
     constructor(){
         super()
         this.state = {
-            savedResults:""
+            savedResults:[]
         }
     }
 
+    componentDidMount(){
+        this.getSavedArticles()
+    }
+
+    getSavedArticles=()=>{
+        API.getsaved().then((res)=>{
+            console.log(res.data)
+            this.setState({
+                savedResults: res.data
+            })
+        })
+    }
+
+    handleRemove=()=>{
+
+    }
 
     populateResults=(data)=>{
         return(
-
             <TableRow key={data._id}>
                 <TableRowColumn>
-                    {data.snippet}
+                    {data.title}
+                </TableRowColumn>
+                <TableRowColumn>
+                    {data.date}
                 </TableRowColumn>
                 <TableRowColumn>
                     <FlatButton
-                        label="Save"
+                        label="Remove"
                         secondary={true}
-                        onClick={()=>this.handleSave(data)}
+                        onClick={()=>this.handleRemove(data)}
                     />
                 </TableRowColumn>
             </TableRow>
-
-
         )
     }
     render(){
         return(
             <div>
-                <h1>Inside Saved</h1>
                 {
-                    this.state.savedResults? <div style={{textAlign:"center"}}><h1>Saved</h1></div> : null
+                    this.state.savedResults ? <div style={{textAlign:"center"}}><h1>Saved Articles</h1></div> : null
                 }
-
                 <Table>
                     <TableBody>
                         {
-                            this.state.savedResults ?  this.state.savedResults.map((this.populateResults)) : null
+                            this.state.savedResults  ?  this.state.savedResults.map((this.populateResults)) : null
                         }
                     </TableBody>
                 </Table>

@@ -14,8 +14,6 @@ import Divider from 'material-ui/Divider';
 //API CALL TO NY API
 import API from '../utils/'
 
-
-
 class Search extends Component{
     constructor(){
         super()
