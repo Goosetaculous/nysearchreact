@@ -24,7 +24,6 @@ class Search extends Component{
             startYear: "",
             endYear:"",
             searchResults:""
-
         }
     }
 
