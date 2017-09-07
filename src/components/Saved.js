@@ -24,7 +24,6 @@ class Saved extends Component{
 
     getSavedArticles=()=>{
         API.getsaved().then((res)=>{
-            console.log(res.data)
             this.setState({
                 savedResults: res.data
             })

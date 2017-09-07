@@ -15,11 +15,9 @@ class Main extends Component{
     }
     handleSaved(){
         window.location.href="/Saved"
-
     }
 
     handleSearch=()=>{
-        //HashRouter.push('/Search')
         window.location.href="/Search"
     }
 
@@ -31,7 +29,6 @@ class Main extends Component{
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                 />
                 <Card>
-
                     <CardText>
                        Best New York Times search app ever created....in React and Material-UI.
                     </CardText>
@@ -39,7 +36,6 @@ class Main extends Component{
                         <FlatButton label="Home" onClick={()=>this.handleHome()}/>
                         <FlatButton label="Saved" onClick={()=>this.handleSaved()}/>
                         <FlatButton label="Search" onClick={()=>this.handleSearch()}/>
-
                     </CardActions>
                 </Card>
             </div>
