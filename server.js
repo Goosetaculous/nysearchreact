@@ -1,5 +1,5 @@
 const express =  require('express')
-var http =  require("http")
+var https =  require("https")
 require('./config/config')
 const {mongoose} =  require('./db/mongoose')
 mongoose.Promise = Promise;
@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 });
 //Keep alive
 setInterval(function() {
-    http.get("https://nysearchreact.herokuapp.com/");
+    https.get("https://nysearchreact.herokuapp.com/");
     console.log("test keep alive")
 }, 300000);
 
