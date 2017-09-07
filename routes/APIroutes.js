@@ -16,5 +16,20 @@ module.exports=(app)=>{
         }).catch((e)=>{
             res.status(500).json({error:e})
         })
+    }),
+
+    app.delete("/api/save/:id",(req,res)=>{
+        console.log(req.params.id)
+        db.Articles.findByIdAndRemove(req.params.id).then((result)=>{
+            res.status(200).json(result)
+        }).catch((e)=>{
+            res.status(500).json({error:e})
+        })
+
+
+        res.status(200).json({test:1})
+
     })
+
+
 }

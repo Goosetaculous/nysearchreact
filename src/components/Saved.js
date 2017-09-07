@@ -31,7 +31,9 @@ class Saved extends Component{
         })
     }
 
-    handleRemove=()=>{
+    handleRemove=(id)=>{
+        API.removedArticle(id)
+        this.getSavedArticles()
 
     }
 
@@ -48,7 +50,7 @@ class Saved extends Component{
                     <FlatButton
                         label="Remove"
                         secondary={true}
-                        onClick={()=>this.handleRemove(data)}
+                        onClick={()=>this.handleRemove(data._id)}
                     />
                 </TableRowColumn>
             </TableRow>

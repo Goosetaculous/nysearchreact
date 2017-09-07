@@ -72,8 +72,6 @@ class Search extends Component{
                         />
                     </TableRowColumn>
                 </TableRow>
-
-
         )
     }
     searchForm=event=>{
